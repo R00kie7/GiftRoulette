@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - GiftSwap</title>
+    <meta name="description" content="GiftSwap Terms of Service. Usage conditions, limitations, license, and liability for the gift exchange app.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #F75C3D 0%, #FF8A65 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            padding: 2rem 0;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 1rem 0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #fff, #ffebee);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .lang-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        .lang-switcher a {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .lang-switcher a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .content {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+        
+        .section h2 {
+            color: #F75C3D;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .section h3 {
+            color: #555;
+            font-size: 1.2rem;
+            margin: 1.5rem 0 0.8rem 0;
+        }
+        
+        .section p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+        
+        .section ul {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+        
+        .section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #F75C3D, #FF8A65);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin: 1.5rem 0;
+        }
+        
+        .highlight-box h3 {
+            color: white;
+            margin-top: 0;
+        }
+        
+        .warning-box {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 10px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .warning-box .icon {
+            color: #ff9800;
+            margin-right: 0.5rem;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .info-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #F75C3D;
+        }
+        
+        .info-card h4 {
+            color: #F75C3D;
+            margin-bottom: 0.5rem;
+        }
+        
+        .back-button {
+            background: linear-gradient(135deg, #F75C3D, #FF8A65);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            margin: 2rem 0;
+        }
+        
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(247, 92, 61, 0.3);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: white;
+            opacity: 0.8;
+        }
+        
+        footer a {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .content {
+                padding: 1.5rem;
+            }
+            
+            .section h2 {
+                font-size: 1.3rem;
+            }
+            
+            .lang-switcher {
+                top: 10px;
+                right: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="lang-switcher">
+        <a href="terms-of-service-it.html"><i class="fas fa-globe"></i> Italiano</a>
+    </div>
+
+    <div class="container">
+        <header>
+            <div class="hero">
+                <h1><i class="fas fa-file-contract"></i> Terms of Service</h1>
+                <p>Usage conditions for the GiftSwap application</p>
+                <p><strong>Last updated:</strong> November 13, 2025</p>
+            </div>
+        </header>
+
+        <main class="content">
+            <div class="warning-box">
+                <i class="fas fa-exclamation-triangle icon"></i>
+                <strong>Important:</strong> Please read these terms carefully before using the app. Using the app implies full acceptance of these Terms and our Privacy Policy.
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-info-circle"></i> 1. Introduction</h2>
+                <p>These Terms of Service ("Terms") govern the use of the "GiftSwap" mobile application, developed by Antonio Rota (individual), available for free with two monetization methods through advertisements (personalized or non-personalized).</p>
+                <p><strong>By using the app, you fully accept these Terms and the Privacy Policy.</strong> If you do not accept these terms, do not use the application.</p>
+                <p>The app is intended exclusively for users residing in the <strong>European Union</strong> and fully complies with the General Data Protection Regulation (GDPR - EU Regulation 2016/679).</p>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-user"></i> 2. Service Provider</h2>
+                <div class="info-card">
+                    <h4>Developer and Data Controller</h4>
+                    <p><strong>Antonio Rota</strong> (individual)<br>
+                    Residence: Mondragone (CE), Italy<br>
+                    Email: appdevmond@gmail.com<br>
+                    Email subject: "TERMS OF SERVICE GIFTSWAP"</p>
+                </div>
+                <p>The Provider is not a company but an individual who develops and maintains the app as a personal project.</p>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-map-marker-alt"></i> 3. Geographic Scope and Limitations</h2>
+                
+                <div class="highlight-box">
+                    <h3><i class="fas fa-globe-europe"></i> European Union Only</h3>
+                    <p>GiftSwap is designed, developed, and offered <strong>exclusively for users residing in the European Union</strong>.</p>
+                </div>
+                
+                <h3>Usage restrictions:</h3>
+                <ul>
+                    <li><strong>Permitted use:</strong> Only if you reside in an EU member state</li>
+                    <li><strong>Prohibited use:</strong> If you reside outside the European Union</li>
+                    <li><strong>Access:</strong> The app may not be available on stores in non-EU countries</li>
+                    <li><strong>Responsibility:</strong> Using the app outside the EU violates these Terms</li>
+                </ul>
+                
+                <div class="warning-box">
+                    <i class="fas fa-ban icon"></i>
+                    <strong>Warning:</strong> If you use the app from outside the European Union, you violate these Terms and we cannot guarantee compliance with local laws. Use is at your sole risk.
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-key"></i> 4. License to Use</h2>
+                <p>Using the app grants you a <strong>personal, non-exclusive, non-transferable, and revocable license</strong> to use GiftSwap on your personal devices within the European Union territory.</p>
+                
+                <h3>What you can do:</h3>
+                <ul>
+                    <li>Use the app for personal and recreational purposes (parties, gifts, exchanges)</li>
+                    <li>Install the app on devices you own</li>
+                    <li>Use both modes (Group Sessions and Duo Mode)</li>
+                    <li>Share QR Codes and Duo codes with other users</li>
+                    <li>Access all features available in your chosen version (personalized/non-personalized ads)</li>
+                </ul>
+                
+                <h3>What you CANNOT do:</h3>
+                <ul>
+                    <li>Share, resell, sublicense, or distribute the app to third parties</li>
+                    <li>Modify, decompile, disassemble, or reverse engineer the app</li>
+                    <li>Use the app for illegal, fraudulent, or harmful purposes</li>
+                    <li>Violate the app's intellectual property rights</li>
+                    <li>Create derivative works or copy source code</li>
+                    <li>Remove, obscure, or modify copyright notices or trademarks</li>
+                    <li>Interfere with app functionality or backend services (Firebase)</li>
+                    <li>Use bots, scripts, or automated systems to interact with the app</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-mobile-alt"></i> 5. Usage Methods and Advertising</h2>
+                
+                <div class="highlight-box">
+                    <h3><i class="fas fa-ad"></i> Free App with Ads</h3>
+                    <p>GiftSwap is completely free and supported by advertising. We offer two modes of your choice.</p>
+                </div>
+                
+                <h3>Available modes:</h3>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4><i class="fas fa-chart-line"></i> Personalized Ads</h4>
+                        <ul>
+                            <li>Ads based on your interests</li>
+                            <li>Actively supports development</li>
+                            <li>Requires explicit consent</li>
+                            <li>Uses Google AdMob with profiling</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4><i class="fas fa-chart-bar"></i> Non-Personalized Ads</h4>
+                        <ul>
+                            <li>Generic non-profiled ads</li>
+                            <li>Limited data collection</li>
+                            <li>Doesn't require personalized ads consent</li>
+                            <li>Uses Google AdMob without profiling</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <p><strong>Full access:</strong> Both modes offer full access to all app features without limitations.</p>
+                <p><strong>Free choice:</strong> You can change modes at any time through the app Settings.</p>
+                
+                <h3>Advertising technology:</h3>
+                <p>Ads are provided by <strong>Google AdMob</strong>. See our <a href="privacy-policy-en.html">Privacy Policy</a> for details on data collection and <a href="https://policies.google.com/technologies/ads">Google's Advertising Policies</a>.</p>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-shield-alt"></i> 6. Limitation of Liability</h2>
+                <p>The app is provided <strong>"as is" and "as available"</strong> without warranties of any kind, expressed or implied, including but not limited to warranties of merchantability, fitness for a particular purpose, or non-infringement.</p>
+                
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4><i class="fas fa-database"></i> Data Loss</h4>
+                        <p><strong>We are not responsible</strong> for data loss due to:</p>
+                        <ul>
+                            <li>Automatic session deletion (24h)</li>
+                            <li>Manual Duo Mode deletion</li>
+                            <li>Firebase malfunctions</li>
+                            <li>Connection problems</li>
+                            <li>App uninstallation (local history loss)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4><i class="fas fa-random"></i> Random Extractions</h4>
+                        <p><strong>We do not guarantee</strong> specific results:</p>
+                        <ul>
+                            <li>Extraction is completely random</li>
+                            <li>Possible unwanted assignments</li>
+                            <li>No post-extraction result modifications</li>
+                            <li>Synchronization depends on connectivity</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4><i class="fas fa-bug"></i> Malfunctions</h4>
+                        <p><strong>We do not guarantee</strong> perfect functionality:</p>
+                        <ul>
+                            <li>Bugs or errors possible</li>
+                            <li>Incompatibility with some devices</li>
+                            <li>Firebase service interruptions</li>
+                            <li>Issues with obsolete Android versions</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4><i class="fas fa-exclamation-circle"></i> Indirect Damages</h4>
+                        <p><strong>Liability exclusion</strong> for:</p>
+                        <ul>
+                            <li>Indirect, incidental, special damages</li>
+                            <li>Economic losses or lost profits</li>
+                            <li>Consequential or punitive damages</li>
+                            <li>Loss of reputation or opportunities</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="warning-box">
+                    <i class="fas fa-info-circle icon"></i>
+                    <strong>Important:</strong> Using the app to organize gift exchanges is at your sole risk. Always verify results and communicate with participants to confirm assignments. We are not responsible for misunderstandings, conflicts, or problems arising from app use.
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-user-times"></i> 7. Misuse and Prohibited Content</h2>
+                
+                <h3>It is prohibited to use the app for:</h3>
+                <ul>
+                    <li><strong>Illegal activities:</strong> Any purpose violating Italian or EU laws</li>
+                    <li><strong>Harassment:</strong> Creating sessions to harass, intimidate, or harm others</li>
+                    <li><strong>Fraud:</strong> Deceiving participants or manipulating extractions</li>
+                    <li><strong>Spam:</strong> Creating massive sessions or abusing Firebase services</li>
+                    <li><strong>Offensive content:</strong> Using names, gifts, or lists with offensive, defamatory, racist, sexist, or discriminatory content</li>
+                    <li><strong>Privacy violation:</strong> Sharing personal data of third parties without consent</li>
+                    <li><strong>Threats:</strong> Threatening, violent, or hate-inciting content</li>
+                    <li><strong>Copyright violation:</strong> Using trademarks, logos, or protected content without authorization</li>
+                </ul>
+                
+                <h3>Consequences of misuse:</h3>
+                <div class="highlight-box">
+                    <p>In case of violation of these Terms, we reserve the right to:</p>
+                    <ul>
+                        <li><strong>Reporting:</strong> Report illegal behavior to competent authorities</li>
+                        <li><strong>Blocking:</strong> Technical inability to block specific users (no accounts), but we can delete reported sessions</li>
+                        <li><strong>Legal action:</strong> Take legal action for damages suffered</li>
+                        <li><strong>Cooperation:</strong> Cooperate with authorities for investigations of illegal use</li>
+                    </ul>
+                </div>
+                
+                <div class="warning-box">
+                    <i class="fas fa-exclamation-triangle icon"></i>
+                    <strong>Note on moderation:</strong> GiftSwap does not have automatic content moderation systems. Sessions and Duo are private and accessible only through codes/QR. You are responsible for appropriate use of the app.
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-sync-alt"></i> 8. Updates and Support</h2>
+                
+                <h3>Free updates:</h3>
+                <ul>
+                    <li><strong>Bug fixes:</strong> Error corrections provided for free when possible</li>
+                    <li><strong>Security patches:</strong> Priority security updates</li>
+                    <li><strong>Android compatibility:</strong> Adaptations for new Android versions</li>
+                    <li><strong>UI/UX improvements:</strong> Interface and animation optimizations</li>
+                    <li><strong>New features:</strong> Any new features will always be free</li>
+                </ul>
+                
+                <h3>Best-effort support:</h3>
+                <div class="info-card">
+                    <p>Being a personal project by a single individual:</p>
+                    <ul>
+                        <li><strong>No guarantee:</strong> We don't guarantee response times or resolution</li>
+                        <li><strong>Email support:</strong> Contact via appdevmond@gmail.com (response in days/weeks)</li>
+                        <li><strong>Voluntary:</strong> Support and development done in spare time</li>
+                        <li><strong>Transparency:</strong> Honest communication about limitations and possibilities</li>
+                    </ul>
+                </div>
+                
+                <p><strong>Discretionary updates:</strong> We provide updates at our discretion. We are not obligated to provide new features or fix all bugs.</p>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-times-circle"></i> 9. Service Termination</h2>
+                
+                <h3>Right to terminate:</h3>
+                <p>We reserve the right to cease development, support, or distribution of the app at any time, with or without notice.</p>
+                
+                <h3>Termination method:</h3>
+                <ul>
+                    <li><strong>Notice:</strong> We'll do our best to give 30 days notice through:
+                        <ul>
+                            <li>In-app notification</li>
+                            <li>Update on this page</li>
+                            <li>Email (if address available)</li>
+                        </ul>
+                    </li>
+                    <li><strong>Local functionality:</strong> App will continue working on devices where installed</li>
+                    <li><strong>Cloud services:</strong> We may disable Firebase (no new sessions/Duo)</li>
+                    <li><strong>Downloads:</strong> Removal from Play Store (no longer downloadable)</li>
+                    <li><strong>Local data:</strong> Local history remains accessible as long as you keep the app installed</li>
+                </ul>
+                
+                <div class="warning-box">
+                    <i class="fas fa-cloud-download-alt icon"></i>
+                    <strong>Advice:</strong> In case of service termination, export/screenshot your extraction history if you want to keep it. Once the app is uninstalled, local data will be lost.
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-gavel"></i> 10. Applicable Law, Jurisdiction, and Dispute Resolution</h2>
+                
+                <div class="highlight-box">
+                    <h3><i class="fas fa-balance-scale"></i> Exclusive European Forum</h3>
+                    <p>These Terms are governed by <strong>Italian law</strong> in accordance with European Union law.</p>
+                </div>
+                
+                <h3>Jurisdiction:</h3>
+                <ul>
+                    <li><strong>Competent court:</strong> Court of Naples, Italy</li>
+                    <li><strong>Scope:</strong> Any dispute arising from these Terms or app use</li>
+                    <li><strong>Consumers:</strong> Mandatory rights of EU consumers remain protected</li>
+                </ul>
+                
+                <h3>Alternative dispute resolution (ADR):</h3>
+                <div class="info-card">
+                    <p>Before resorting to court, we encourage attempting amicable resolution:</p>
+                    <ul>
+                        <li><strong>Direct contact:</strong> Email to appdevmond@gmail.com (subject: "DISPUTE GIFTSWAP")</li>
+                        <li><strong>Negotiation:</strong> Attempt at amicable resolution within 30 days</li>
+                        <li><strong>Mediation:</strong> If useful, possibility of voluntary mediation</li>
+                        <li><strong>EU ODR Platform:</strong> <a href="https://ec.europa.eu/consumers/odr/" target="_blank">https://ec.europa.eu/consumers/odr/</a></li>
+                    </ul>
+                </div>
+                
+                <h3>Consumer rights:</h3>
+                <p>Nothing in these Terms limits your mandatory rights as a consumer under European Union and national laws, including:</p>
+                <ul>
+                    <li>Right of withdrawal (where applicable)</li>
+                    <li>GDPR rights (access, rectification, deletion, portability, objection)</li>
+                    <li>Protection against unfair terms</li>
+                    <li>Right to bring action in the court of your state of residence for consumer matters</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-balance-scale-right"></i> 11. Limitation of Liability (Liability)</h2>
+                
+                <h3>Maximum liability exclusion allowed:</h3>
+                <p>To the extent permitted by applicable law, the Provider (Antonio Rota) will not be liable for:</p>
+                <ul>
+                    <li><strong>Direct damages:</strong> Limited to maximum amount paid for app (€0, being free)</li>
+                    <li><strong>Indirect damages:</strong> Any indirect, incidental, special, consequential, or punitive damages</li>
+                    <li><strong>Data loss:</strong> Loss or corruption of data, including sessions, Duo, extraction history</li>
+                    <li><strong>Interruptions:</strong> Service interruptions, Firebase downtime, connectivity issues</li>
+                    <li><strong>Third parties:</strong> Actions of third parties, other users' behavior, offensive content</li>
+                    <li><strong>Personal decisions:</strong> Decisions made based on app results</li>
+                </ul>
+                
+                <div class="info-card">
+                    <h4>Examples of liability exclusion:</h4>
+                    <ul>
+                        <li>Participant offended by extraction result → Not responsible</li>
+                        <li>Conflicts between Duo Mode users → Not responsible</li>
+                        <li>Session deleted before screenshot → Not responsible</li>
+                        <li>Inappropriate gift chosen from wishlist → Not responsible</li>
+                        <li>Gift event organizational problems → Not responsible</li>
+                        <li>Emotional or relational damages → Not responsible</li>
+                    </ul>
+                </div>
+                
+                <h3>User responsibility:</h3>
+                <p><strong>You agree to:</strong></p>
+                <ul>
+                    <li>Use the app at your sole risk</li>
+                    <li>Be responsible for your actions and decisions</li>
+                    <li>Verify extraction results before proceeding with gift purchases</li>
+                    <li>Communicate appropriately with other participants</li>
+                    <li>Not rely exclusively on the app for organizing critical events</li>
+                    <li>Indemnify and hold harmless the Provider from any third-party claims arising from your use of the app</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-shield-check"></i> 12. GDPR Compliance and Privacy</h2>
+                
+                <p>GiftSwap is <strong>100% GDPR compliant</strong> (EU Regulation 2016/679). For detailed information on data collection, use, and deletion, see our <a href="privacy-policy-en.html">Privacy Policy</a>.</p>
+                
+                <h3>Key principles:</h3>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4><i class="fas fa-minimize"></i> Data Minimization</h4>
+                        <p>We collect only strictly necessary data:</p>
+                        <ul>
+                            <li>Chosen names (not real)</li>
+                            <li>Anonymous device UUIDs</li>
+                            <li>Wishlists (optional)</li>
+                            <li>No sensitive personal data</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4><i class="fas fa-clock"></i> Storage Limitation</h4>
+                        <p>Automatic limited retention:</p>
+                        <ul>
+                            <li>Sessions: 24h auto-delete</li>
+                            <li>Duo: Explicit manual deletion</li>
+                            <li>Local history: Deletable from Settings</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4><i class="fas fa-user-check"></i> User Rights</h4>
+                        <p>Exercise all GDPR rights:</p>
+                        <ul>
+                            <li>Data access (Settings)</li>
+                            <li>Rectification (edit lists)</li>
+                            <li>Deletion (delete data)</li>
+                            <li>Portability (export history)</li>
+                            <li>Objection (revoke consents)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4><i class="fas fa-file-signature"></i> Explicit Consent</h4>
+                        <p>Granular consents required:</p>
+                        <ul>
+                            <li>Privacy Policy (mandatory)</li>
+                            <li>Age 16+ (mandatory EU)</li>
+                            <li>Personalized ads (optional)</li>
+                            <li>Google UMP for detailed choices</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <p><strong>Consent Screen:</strong> On first launch, you'll be presented with a Consent Screen with 3 checkboxes to manage consents in GDPR compliance. You can change choices anytime from Settings.</p>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-edit"></i> 13. Changes to Terms</h2>
+                
+                <p>These Terms may be modified at any time at our discretion. Changes will be communicated through:</p>
+                <ul>
+                    <li><strong>Page update:</strong> New "Last updated" date at top</li>
+                    <li><strong>In-app notification:</strong> Alert on next launch after substantial change</li>
+                    <li><strong>Email:</strong> If address available and significant change</li>
+                </ul>
+                
+                <h3>Substantial vs minor changes:</h3>
+                <div class="info-card">
+                    <p><strong>Substantial changes</strong> (require re-acceptance):</p>
+                    <ul>
+                        <li>Liability limitation changes</li>
+                        <li>New significant usage restrictions</li>
+                        <li>Jurisdiction or applicable law changes</li>
+                        <li>Data collection changes (see Privacy Policy)</li>
+                    </ul>
+                    
+                    <p><strong>Minor changes</strong> (continued use = acceptance):</p>
+                    <ul>
+                        <li>Terminology clarifications</li>
+                        <li>Grammatical error corrections</li>
+                        <li>Contact info updates</li>
+                        <li>Formatting improvements</li>
+                    </ul>
+                </div>
+                
+                <p><strong>By continuing to use the app after changes, you accept the new Terms.</strong> If you don't accept, uninstall the app and delete data.</p>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-ban"></i> 14. Violations and Suspensions</h2>
+                
+                <h3>Technical limitations:</h3>
+                <p>GiftSwap doesn't use user account systems, so we can't "ban" specific users. However:</p>
+                <ul>
+                    <li><strong>Reported sessions:</strong> We can manually delete Firebase sessions reported for abuse</li>
+                    <li><strong>Pattern analysis:</strong> Firebase monitoring to identify abusive patterns (massive session spam)</li>
+                    <li><strong>IP filtering:</strong> In extreme cases, possibility of IP blocking at Firebase level</li>
+                </ul>
+                
+                <h3>Reporting abuse:</h3>
+                <div class="info-card">
+                    <p>To report app misuse:</p>
+                    <ul>
+                        <li><strong>Email:</strong> appdevmond@gmail.com</li>
+                        <li><strong>Subject:</strong> "ABUSE REPORT GIFTSWAP"</li>
+                        <li><strong>Information:</strong> Detailed description, session/Duo code (if possible), screenshots</li>
+                        <li><strong>Timeline:</strong> We'll respond within 7-30 business days</li>
+                    </ul>
+                </div>
+                
+                <h3>Violation consequences:</h3>
+                <ul>
+                    <li><strong>Authority reporting:</strong> Illegal behavior reported to Postal Police/competent authorities</li>
+                    <li><strong>Investigation cooperation:</strong> We provide data requested by authorities with legal warrant</li>
+                    <li><strong>Legal action:</strong> We reserve right to legal action for damages suffered</li>
+                    <li><strong>Service termination:</strong> In extreme cases, possibility to temporarily or permanently cease service</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-child"></i> 15. Minimum Age and Minor Protection</h2>
+                
+                <div class="highlight-box">
+                    <h3><i class="fas fa-child"></i> Age Requirement 16+</h3>
+                    <p>GiftSwap requires a minimum age of <strong>16 years</strong> in compliance with Article 8 of GDPR.</p>
+                </div>
+                
+                <h3>Minor restrictions:</h3>
+                <ul>
+                    <li><strong>Minimum age:</strong> 16 years old (GDPR requirement for autonomous consent)</li>
+                    <li><strong>Age verification:</strong> Self-declared via checkbox on Consent Screen</li>
+                    <li><strong>No minor data collection:</strong> If you declare being under 16, the app is not usable</li>
+                    <li><strong>Parents/guardians:</strong> Parental responsibility to verify appropriate use by minors</li>
+                </ul>
+                
+                <div class="warning-box">
+                    <i class="fas fa-exclamation-triangle icon"></i>
+                    <strong>Important:</strong> If we discover that data from minors under 16 has been inadvertently collected, we will delete it immediately. Report any violations to appdevmond@gmail.com.
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-handshake"></i> 16. Severability Clause</h2>
+                
+                <p>If any provision of these Terms is declared invalid, illegal, or unenforceable by a competent court:</p>
+                <ul>
+                    <li>The invalid provision will be interpreted as closely as possible to the original intent</li>
+                    <li>Other provisions will remain fully valid and effective</li>
+                    <li>The Terms as a whole will not be invalidated</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-file-alt"></i> 17. Entire Agreement</h2>
+                
+                <p>These Terms of Service, together with the <a href="privacy-policy-en.html">Privacy Policy</a>, constitute the <strong>complete agreement</strong> between you and Antonio Rota regarding the use of GiftSwap.</p>
+                <p>These Terms supersede any previous agreement, communication, or proposal, whether oral or written, between you and the Provider.</p>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-envelope"></i> 18. Contact</h2>
+                
+                <p>For any questions, clarifications, or requests regarding these Terms of Service:</p>
+                
+                <div class="info-card">
+                    <h4><i class="fas fa-user"></i> Contact the Provider</h4>
+                    <p><strong>Antonio Rota</strong><br>
+                    Email: <a href="mailto:appdevmond@gmail.com">appdevmond@gmail.com</a><br>
+                    Email subject: "TERMS OF SERVICE GIFTSWAP"</p>
+                    
+                    <p><strong>Response timeline:</strong> We'll do our best to respond within 30 business days. Being a personal project, response may take longer during high-activity periods.</p>
+                    
+                    <p><strong>Information to include:</strong></p>
+                    <ul>
+                        <li>Specific request subject</li>
+                        <li>Terms section you're referring to</li>
+                        <li>Detailed issue description</li>
+                        <li>App version used (if relevant)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <h3><i class="fas fa-check-circle"></i> Terms Acceptance</h3>
+                <p>By using the GiftSwap application, you declare that you:</p>
+                <ul>
+                    <li>Have carefully read and understood these Terms of Service</li>
+                    <li>Have read and understood the <a href="privacy-policy-en.html" style="color: white; text-decoration: underline;">Privacy Policy</a></li>
+                    <li>Fully accept both documents</li>
+                    <li>Are at least 16 years old</li>
+                    <li>Reside in the European Union</li>
+                    <li>Commit to using the app appropriately and legally</li>
+                </ul>
+                <p><strong>Acceptance date:</strong> From the moment of first use of the app after completing the Consent Screen</p>
+            </div>
+
+            <a href="index.html" class="back-button">
+                <i class="fas fa-arrow-left"></i>
+                Back to Homepage
+            </a>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Antonio Rota - GiftSwap. All rights reserved.</p>
+            <p>
+                <a href="privacy-policy-en.html">Privacy Policy</a> | 
+                <a href="terms-of-service-en.html">Terms of Service</a> |
+                <a href="tutorial.html">Tutorial</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
