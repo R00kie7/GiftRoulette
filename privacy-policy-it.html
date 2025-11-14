@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - GiftSwap</title>
+    <meta name="description" content="Privacy Policy completa di GiftSwap. Informazioni su raccolta dati, Firestore, GDPR, Google AdMob e gestione dei dati personali.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #F75C3D 0%, #FF8A65 100%);
+            min-height: 100vh;
+        }
+        
+        .lang-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        .lang-switcher a {
+            background: white;
+            color: #F75C3D;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .lang-switcher a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            padding: 2rem 0;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 1rem 0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #fff, #f0f8ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .content {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+        
+        .section h2 {
+            color: #F75C3D;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .section h3 {
+            color: #555;
+            font-size: 1.2rem;
+            margin: 1.5rem 0 0.8rem 0;
+        }
+        
+        .section p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+        
+        .section ul {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+        
+        .section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #F75C3D, #FF8A65);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin: 1.5rem 0;
+        }
+        
+        .highlight-box h3 {
+            color: white;
+            margin-top: 0;
+        }
+        
+        .warning-box {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 10px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .warning-box .icon {
+            color: #ff9800;
+            margin-right: 0.5rem;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .info-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #F75C3D;
+        }
+        
+        .info-card h4 {
+            color: #F75C3D;
+            margin-bottom: 0.5rem;
+        }
+        
+        .back-button {
+            background: linear-gradient(135deg, #F75C3D, #FF8A65);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            margin: 2rem 0;
+        }
+        
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(247, 92, 61, 0.3);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: white;
+            opacity: 0.8;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .content {
+                padding: 1.5rem;
+            }
+            
+            .section h2 {
+                font-size: 1.3rem;
+            }
+            
+            .lang-switcher {
+                top: 10px;
+                right: 10px;
+            }
+            
+            .lang-switcher a {
+                padding: 8px 16px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="lang-switcher">
+        <a href="privacy-policy-en.html">
+            <i class="fas fa-globe"></i>
+            English
+        </a>
+    </div>
+
+    <div class="container">
+        <header>
+            <div class="hero">
+                <h1><i class="fas fa-shield-alt"></i> Privacy Policy</h1>
+                <p>Informazioni complete sulla privacy per GiftSwap</p>
+                <p><strong>Ultimo aggiornamento:</strong> 13 Novembre 2025</p>
+                <p><strong>Versione:</strong> 1.0.0</p>
+            </div>
+        </header>
+
+        <main class="content">
+            <div class="section">
+                <h2><i class="fas fa-info-circle"></i> 1. Introduzione</h2>
+                <p>La tua privacy è fondamentale per noi. Questa Privacy Policy descrive come l'app <strong>GiftSwap</strong> raccoglie, utilizza e protegge i tuoi dati personali in conformità con il Regolamento Generale sulla Protezione dei Dati (GDPR) UE 2016/679.</p>
+                
+                <p>GiftSwap è un'applicazione gratuita che ti permette di organizzare estrazioni regalo di gruppo in modo divertente e sincronizzato. L'app utilizza Google Firebase Firestore per la gestione dei dati in tempo reale e Google AdMob per la visualizzazione di annunci pubblicitari che ci permettono di offrire il servizio gratuitamente.</p>
+                
+                <div class="warning-box">
+                    <i class="fas fa-info-circle icon"></i>
+                    <strong>Importante:</strong> GiftSwap raccoglie solo i dati strettamente necessari per il funzionamento del servizio. Non raccogliamo informazioni personali sensibili e tutti i dati vengono trattati con la massima sicurezza.
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-user"></i> 2. Titolare del trattamento</h2>
+                <div class="info-card">
+                    <h4>Sviluppatore</h4>
+                    <p><strong>Antonio Rota</strong> (persona fisica)<br>
+                    Indirizzo: Mondragone, Italia<br>
+                    Email: <strong>appdevmond@gmail.com</strong><br>
+                    Oggetto email: <strong>PRIVACY GIFTSWAP</strong></p>
+                </div>
+                
+                <div class="warning-box">
+                    <i class="fas fa-info-circle icon"></i>
+                    <strong>Nota DPO:</strong> Considerata la natura e la portata del trattamento dei dati, non è richiesta la nomina di un Responsabile della Protezione dei Dati (DPO). Per qualsiasi questione relativa alla privacy, contatta direttamente il titolare del trattamento.
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-database"></i> 3. Dati raccolti e finalità</h2>
+                
+                <h3><i class="fas fa-mobile-alt"></i> 3.1 Dati raccolti localmente (sul tuo dispositivo)</h3>
+                <p>Questi dati sono memorizzati solo sul tuo dispositivo e non vengono mai inviati a server esterni:</p>
+                
+                <ul>
+                    <li><strong>Nome utente:</strong> Il nome che scegli per identificarti nelle sessioni</li>
+                    <li><strong>Lista regali:</strong> I regali che crei per le estrazioni</li>
+                    <li><strong>Storico estrazioni:</strong> Le estrazioni passate salvate in locale (database SQLite)</li>
+                    <li><strong>Preferenze app:</strong> Lingua, consenso privacy, stato onboarding</li>
+                    <li><strong>Codici Duo:</strong> Codici delle coppie salvati per accesso rapido</li>
+                </ul>
+                
+                <p><strong>Finalità:</strong> Fornire le funzionalità dell'app senza richiedere registrazione account.</p>
+                <p><strong>Base giuridica:</strong> Esecuzione del contratto (uso dell'app).</p>
+                <p><strong>Conservazione:</strong> Fino alla disinstallazione dell'app o cancellazione manuale dei dati dalle impostazioni.</p>
+                
+                <h3><i class="fas fa-cloud"></i> 3.2 Dati archiviati su Google Firebase Firestore</h3>
+                <p>Durante l'utilizzo delle funzioni di gruppo, alcuni dati vengono temporaneamente salvati su Firebase Firestore per permettere la sincronizzazione in tempo reale:</p>
+                
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4><i class="fas fa-users"></i> Sessioni GiftSwap</h4>
+                        <p><strong>Dati:</strong> Codice sessione (8 caratteri), ID dispositivo host, numero partecipanti, impostazioni estrazione (numeri, contenuti, nomi), timestamp creazione</p>
+                        <p><strong>Conservazione:</strong> 24 ore (eliminazione automatica)</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4><i class="fas fa-user-friends"></i> Partecipanti Sessioni</h4>
+                        <p><strong>Dati:</strong> ID dispositivo, nome scelto, regalo selezionato (etichetta e descrizione), regalo ricevuto, timestamp unione</p>
+                        <p><strong>Conservazione:</strong> 24 ore (eliminazione automatica con la sessione)</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4><i class="fas fa-heart"></i> Modalità Duo</h4>
+                        <p><strong>Dati:</strong> Codice duo, ID dispositivi (2 utenti), nomi scelti, liste desideri con nomi regali e link opzionali, timestamp</p>
+                        <p><strong>Conservazione:</strong> Permanente fino a cancellazione manuale da parte degli utenti</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4><i class="fas fa-user-slash"></i> Utenti Non Connessi</h4>
+                        <p><strong>Dati:</strong> Nome utente offline, descrizione regalo (inseriti dall'host per partecipanti senza smartphone)</p>
+                        <p><strong>Conservazione:</strong> 24 ore (eliminati con la sessione)</p>
+                    </div>
+                </div>
+                
+                <p><strong>Finalità:</strong> Sincronizzazione in tempo reale tra i dispositivi dei partecipanti, gestione estrazioni casuali, condivisione liste desideri in modalità Duo.</p>
+                <p><strong>Base giuridica:</strong> Esecuzione del contratto (uso delle funzionalità collaborative dell'app).</p>
+                <p><strong>Ubicazione server:</strong> Europe-west1 (Belgio) - conformità GDPR garantita.</p>
+                
+                <div class="highlight-box">
+                    <h3><i class="fas fa-shield-alt"></i> Sicurezza dei dati Firebase</h3>
+                    <p>Tutti i dati sono trasmessi tramite connessioni crittografate TLS/SSL. I server Firebase rispettano gli standard di sicurezza Google e sono conformi GDPR. L'accesso ai dati è protetto da regole di sicurezza Firestore.</p>
+                </div>
+                
+                <h3><i class="fas fa-fingerprint"></i> 3.3 Identificatori dispositivo</h3>
+                <p>L'app utilizza <strong>identificatori anonimi del dispositivo</strong> generati localmente per:</p>
+                <ul>
+                    <li>Identificare univocamente i partecipanti nelle sessioni senza richiedere account</li>
+                    <li>Permettere la riconnessione automatica a sessioni attive</li>
+                    <li>Associare i regali ricevuti al dispositivo corretto</li>
+                </ul>
+                
+                <p><strong>Tecnologia:</strong> UUID v4 generato localmente, nessun legame con identità reale.</p>
+                <p><strong>Google Advertising ID:</strong> Utilizzato solo da AdMob per annunci personalizzati (vedi sezione 3.4).</p>
+                
+                <h3><i class="fas fa-ad"></i> 3.4 Dati raccolti da Google AdMob</h3>
+                <p>GiftSwap utilizza Google AdMob per mostrare annunci pubblicitari. AdMob può raccogliere:</p>
+                
+                <ul>
+                    <li><strong>Identificatori pubblicitari:</strong> Google Advertising ID (GAID), App Set ID</li>
+                    <li><strong>Informazioni dispositivo:</strong> Indirizzo IP, tipo dispositivo, modello, sistema operativo, lingua</li>
+                    <li><strong>Dati interazione annunci:</strong> Visualizzazioni, clic, tempo di visualizzazione</li>
+                    <li><strong>Dati demografici approssimativi:</strong> Fascia d'età, interessi generali (solo con consenso)</li>
+                </ul>
+                
+                <p><strong>Finalità:</strong> Erogazione annunci pubblicitari, personalizzazione annunci (con consenso), misurazione performance, prevenzione frodi.</p>
+                <p><strong>Base giuridica:</strong> Consenso esplicito (per annunci personalizzati) o legittimo interesse (per annunci generici).</p>
+                <p><strong>Gestione consenso:</strong> Implementato Google Consent Mode v2 conforme GDPR.</p>
+                
+                <div class="info-card">
+                    <h4><i class="fas fa-cog"></i> Gestione annunci</h4>
+                    <p>Puoi modificare le tue preferenze annunci in qualsiasi momento da:<br>
+                    <strong>Impostazioni app</strong> → Gestisci Privacy → Preferenze Annunci<br>
+                    <strong>Google Account</strong> → <a href="https://adssettings.google.com" target="_blank">Impostazioni Annunci</a></p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-database"></i> 4. Architettura dati e funzionamento Firestore</h2>
+                
+                <h3><i class="fas fa-sitemap"></i> 4.1 Struttura database Firebase</h3>
+                <p>GiftSwap utilizza due collezioni principali in Firestore:</p>
+                
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4>Collection: "sessions"</h4>
+                        <p><strong>Contenuto:</strong> Documento per ogni sessione GiftSwap con codice, configurazioni, status<br>
+                        <strong>Subcollection:</strong> "participants" con i dati di ogni partecipante<br>
+                        <strong>TTL:</strong> 24 ore dalla creazione</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4>Collection: "duos"</h4>
+                        <p><strong>Contenuto:</strong> Documento per ogni coppia Duo con codice, liste desideri di entrambi gli utenti<br>
+                        <strong>Persistenza:</strong> Permanente fino a cancellazione manuale<br>
+                        <strong>Accesso:</strong> Solo tramite codice univoco a 8 caratteri</p>
+                    </div>
+                </div>
+                
+                <h3><i class="fas fa-sync"></i> 4.2 Sincronizzazione realtime</h3>
+                <p>Quando partecipi a una sessione, l'app mantiene una connessione realtime con Firestore per:</p>
+                <ul>
+                    <li><strong>Vedere nuovi partecipanti</strong> che si uniscono alla sessione</li>
+                    <li><strong>Ricevere risultati estrazione</strong> quando l'host avvia il sorteggio</li>
+                    <li><strong>Aggiornare liste desideri</strong> in modalità Duo quando il partner aggiunge regali</li>
+                </ul>
+                
+                <p><strong>Ottimizzazioni implementate:</strong></p>
+                <ul>
+                    <li>Batch writes per ridurre numero operazioni di scrittura</li>
+                    <li>Listeners attivi solo durante uso effettivo delle schermate</li>
+                    <li>Disconnessione automatica quando esci dalla sessione</li>
+                </ul>
+                
+                <h3><i class="fas fa-trash-alt"></i> 4.3 Eliminazione automatica dati</h3>
+                <p>Per conformità GDPR e ottimizzazione risorse:</p>
+                
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4>Sessioni GiftSwap</h4>
+                        <p><strong>Eliminazione:</strong> Automatica dopo 24 ore dalla creazione<br>
+                        <strong>Metodo:</strong> Cloud Function schedulata ogni 6 ore<br>
+                        <strong>Include:</strong> Documento sessione + tutti i partecipanti</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4>Modalità Duo</h4>
+                        <p><strong>Eliminazione:</strong> Solo manuale da parte degli utenti<br>
+                        <strong>Metodo:</strong> Pulsante "Esci dal Duo" nell'app<br>
+                        <strong>Effetto:</strong> Cancellazione immediata del documento</p>
+                    </div>
+                </div>
+                
+                <div class="warning-box">
+                    <i class="fas fa-clock icon"></i>
+                    <strong>Importante:</strong> Le sessioni GiftSwap vengono eliminate automaticamente dopo 24 ore anche se la sessione è ancora in corso. Assicurati di completare l'estrazione e salvare eventuali informazioni importanti localmente (lo storico viene salvato automaticamente sul tuo dispositivo).
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-lock"></i> 5. Sicurezza e protezione dati</h2>
+                
+                <h3><i class="fas fa-shield-alt"></i> Misure tecniche implementate</h3>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4><i class="fas fa-lock"></i> Crittografia</h4>
+                        <p>Tutti i dati trasmessi tra app e Firebase sono crittografati con TLS/SSL. Database SQLite locale non contiene dati sensibili.</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4><i class="fas fa-user-shield"></i> Anonimizzazione</h4>
+                        <p>Nessun dato permette identificazione diretta. UUID dispositivo non linkabili a identità reale. Solo tu scegli quale nome mostrare.</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4><i class="fas fa-server"></i> Server sicuri</h4>
+                        <p>Firebase utilizza datacenter Google certificati ISO 27001, SOC 2/3, conformi GDPR in Europa (Belgio).</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4><i class="fas fa-code"></i> Regole Firestore</h4>
+                        <p>Accesso ai dati protetto da regole di sicurezza che permettono lettura/scrittura solo per sessioni attive.</p>
+                    </div>
+                </div>
+                
+                <h3><i class="fas fa-exclamation-triangle"></i> Gestione violazioni dati</h3>
+                <p>In caso di violazione dei dati personali:</p>
+                <ul>
+                    <li><strong>Notifica alle autorità:</strong> Entro 72 ore come richiesto da GDPR art. 33</li>
+                    <li><strong>Comunicazione utenti:</strong> Se violazione comporta rischio elevato</li>
+                    <li><strong>Misure correttive:</strong> Implementazione immediata di rimedi</li>
+                    <li><strong>Documentazione:</strong> Registro completo di tutte le violazioni</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-globe-americas"></i> 6. Trasferimento dati fuori dall'UE</h2>
+                <p>Google Firebase può trasferire dati fuori dallo Spazio Economico Europeo, principalmente negli Stati Uniti, dove Google opera.</p>
+                
+                <h3><i class="fas fa-shield-alt"></i> Garanzie per i trasferimenti</h3>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4><i class="fas fa-file-contract"></i> SCC</h4>
+                        <p>Clausole Contrattuali Standard approvate UE per protezione adeguata dei dati trasferiti</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4><i class="fas fa-certificate"></i> Privacy Framework</h4>
+                        <p>Google aderisce al EU-US Data Privacy Framework per trasferimenti verso USA</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4><i class="fas fa-building"></i> BCR Google</h4>
+                        <p>Binding Corporate Rules per protezione uniforme in tutto il gruppo Google</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4><i class="fas fa-map-marker-alt"></i> Server EU</h4>
+                        <p>Dati Firestore archiviati primariamente in datacenter europei (Belgio)</p>
+                    </div>
+                </div>
+                
+                <div class="info-card">
+                    <h4><i class="fas fa-external-link-alt"></i> Maggiori informazioni</h4>
+                    <p>Per dettagli sui trasferimenti Google:<br>
+                    <a href="https://policies.google.com/privacy/frameworks" target="_blank">Google Privacy Frameworks</a><br>
+                    <a href="https://firebase.google.com/support/privacy" target="_blank">Firebase Privacy & Security</a></p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-clock"></i> 7. Durata conservazione dati</h2>
+                
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4><i class="fas fa-users"></i> Sessioni GiftSwap</h4>
+                        <p><strong>Firestore:</strong> 24 ore (eliminazione automatica)<br>
+                        <strong>Locale:</strong> Storico permanente fino a cancellazione manuale</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4><i class="fas fa-heart"></i> Modalità Duo</h4>
+                        <p><strong>Firestore:</strong> Fino a cancellazione manuale degli utenti<br>
+                        <strong>Locale:</strong> Codici salvati fino a rimozione manuale</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4><i class="fas fa-mobile-alt"></i> Dati locali</h4>
+                        <p><strong>Regali/Nome:</strong> Fino a disinstallazione app o reset dati<br>
+                        <strong>Storico:</strong> Eliminabile da Impostazioni → Storico → Cancella</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4><i class="fas fa-ad"></i> Dati AdMob</h4>
+                        <p><strong>Identificatori:</strong> Fino a 26 mesi<br>
+                        <strong>Gestione:</strong> Controllabile da Google Account</p>
+                    </div>
+                </div>
+                
+                <h3><i class="fas fa-trash-alt"></i> Criteri di eliminazione</h3>
+                <ul>
+                    <li><strong>Eliminazione automatica:</strong> Sessioni GiftSwap dopo 24h</li>
+                    <li><strong>Disinstallazione app:</strong> Tutti i dati locali rimossi dal dispositivo</li>
+                    <li><strong>Reset dati manuale:</strong> Impostazioni → Dati e Privacy → Cancella tutti i dati</li>
+                    <li><strong>Revoca consenso AdMob:</strong> Dati pubblicitari eliminati secondo policy Google</li>
+                </ul>
+            </div>
+
+            <div class="section" id="diritti-utente">
+                <h2><i class="fas fa-user-shield"></i> 8. I tuoi diritti GDPR</h2>
+                <p>Hai i seguenti diritti sui tuoi dati personali:</p>
+                
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4><i class="fas fa-search"></i> Accesso (Art. 15)</h4>
+                        <p><strong>Cosa:</strong> Ottenere copia dei tuoi dati<br>
+                        <strong>Come:</strong> Email a appdevmond@gmail.com<br>
+                        <strong>Tempi:</strong> 30 giorni</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4><i class="fas fa-edit"></i> Rettifica (Art. 16)</h4>
+                        <p><strong>Cosa:</strong> Correggere dati inesatti<br>
+                        <strong>Come:</strong> Direttamente dall'app o via email<br>
+                        <strong>Tempi:</strong> Immediato (app) o 30 giorni</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4><i class="fas fa-trash"></i> Cancellazione (Art. 17)</h4>
+                        <p><strong>Cosa:</strong> Eliminare tutti i tuoi dati<br>
+                        <strong>Come:</strong> Disinstalla app + email per dati Firebase<br>
+                        <strong>Tempi:</strong> 30 giorni</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4><i class="fas fa-download"></i> Portabilità (Art. 20)</h4>
+                        <p><strong>Cosa:</strong> Ricevere dati in formato leggibile<br>
+                        <strong>Come:</strong> Email con richiesta<br>
+                        <strong>Formato:</strong> JSON</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4><i class="fas fa-hand-paper"></i> Opposizione (Art. 21)</h4>
+                        <p><strong>Cosa:</strong> Opporti a trattamenti specifici<br>
+                        <strong>Come:</strong> Impostazioni app o email<br>
+                        <strong>Applicabile:</strong> Profilazione, marketing</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4><i class="fas fa-ban"></i> Revoca consenso</h4>
+                        <p><strong>Cosa:</strong> Ritirare consenso annunci personalizzati<br>
+                        <strong>Come:</strong> Impostazioni app<br>
+                        <strong>Effetto:</strong> Annunci generici invece di personalizzati</p>
+                    </div>
+                </div>
+                
+                <div class="info-card">
+                    <h4><i class="fas fa-envelope"></i> Esercizio dei diritti</h4>
+                    <p><strong>Email:</strong> appdevmond@gmail.com<br>
+                    <strong>Oggetto:</strong> [DIRITTO RICHIESTO] - PRIVACY GIFTSWAP<br>
+                    <strong>Informazioni necessarie:</strong> Nome utilizzato nell'app, descrizione richiesta, codici sessioni/duo (se applicabile)</p>
+                </div>
+                
+                <h3><i class="fas fa-gavel"></i> Diritto di reclamo</h3>
+                <p>Se ritieni che i tuoi diritti siano stati violati, puoi presentare reclamo al Garante Privacy:</p>
+                <div class="info-card">
+                    <h4><i class="fas fa-balance-scale"></i> Garante per la protezione dei dati personali</h4>
+                    <p><strong>Sito:</strong> <a href="https://www.gpdp.it/" target="_blank">www.gpdp.it</a><br>
+                    <strong>Email:</strong> garante@gpdp.it<br>
+                    <strong>Indirizzo:</strong> Piazza di Monte Citorio, 121 - 00186 Roma<br>
+                    <strong>Telefono:</strong> 06.69677.1</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-child"></i> 9. Minori e protezione</h2>
+                <p>GiftSwap è progettata per essere utilizzata da utenti di tutte le età per organizzare estrazioni regalo in famiglia, scuola e tra amici.</p>
+                
+                <h3><i class="fas fa-calendar-alt"></i> Limiti di età</h3>
+                <ul>
+                    <li><strong>13+ anni:</strong> Possono utilizzare l'app autonomamente</li>
+                    <li><strong>Sotto 13 anni:</strong> Richiesta supervisione di un genitore o tutore</li>
+                    <li><strong>16+ anni:</strong> Età minima per consenso autonomo ad annunci personalizzati (GDPR Art. 8)</li>
+                </ul>
+                
+                <div class="warning-box">
+                    <i class="fas fa-user-shield icon"></i>
+                    <strong>Per i genitori:</strong> Se scoprite che un minore ha fornito dati senza consenso appropriato, contattateci immediatamente per la cancellazione. L'app non raccoglie intenzionalmente dati di minori di 13 anni senza supervisione.
+                </div>
+                
+                <h3><i class="fas fa-shield-alt"></i> Misure di protezione</h3>
+                <ul>
+                    <li>Nessuna raccolta di dati sensibili o informazioni di contatto</li>
+                    <li>Annunci filtrati per contenuti appropriati a tutte le età</li>
+                    <li>Utenti sotto 16 anni indirizzati automaticamente verso annunci generici</li>
+                    <li>Possibilità per genitori di richiedere cancellazione dati del minore</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-cookie-bite"></i> 10. Cookie e tecnologie simili</h2>
+                <p>Come app mobile nativa, GiftSwap non utilizza cookie web tradizionali. Tuttavia:</p>
+                
+                <h3><i class="fas fa-mobile-alt"></i> Tecnologie utilizzate</h3>
+                <ul>
+                    <li><strong>SharedPreferences:</strong> Memorizzazione locale preferenze e impostazioni</li>
+                    <li><strong>SQLite:</strong> Database locale per storico estrazioni</li>
+                    <li><strong>Firebase SDK:</strong> Identificatori sessione per connessione Firestore</li>
+                    <li><strong>AdMob SDK:</strong> Cookie e identificatori pubblicitari per annunci</li>
+                </ul>
+                
+                <p><strong>Gestione:</strong> Puoi cancellare tutti i dati locali da Impostazioni app o disinstallando l'applicazione.</p>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-robot"></i> 11. Decisioni automatizzate e profilazione</h2>
+                <p>GiftSwap NON utilizza processi decisionali automatizzati che producono effetti giuridici o significativi sugli utenti.</p>
+                
+                <h3><i class="fas fa-random"></i> Algoritmo estrazione</h3>
+                <p>L'unico processo automatizzato è l'<strong>algoritmo di sorteggio casuale</strong> per l'assegnazione dei regali:</p>
+                <ul>
+                    <li><strong>Scopo:</strong> Assegnare casualmente un regalo a ogni partecipante</li>
+                    <li><strong>Logica:</strong> Shuffle casuale garantendo che nessuno riceva il proprio regalo</li>
+                    <li><strong>Trasparenza:</strong> Processo completamente casuale senza favoritismi</li>
+                    <li><strong>Conseguenze:</strong> Nessun effetto legale, solo ludico/sociale</li>
+                </ul>
+                
+                <h3><i class="fas fa-ad"></i> Profilazione AdMob</h3>
+                <p>Google AdMob può effettuare profilazione pubblicitaria <strong>solo con tuo consenso esplicito</strong>:</p>
+                <ul>
+                    <li>Analisi interessi basata su comportamento online</li>
+                    <li>Creazione profili pubblicitari per targeting annunci</li>
+                    <li>Decisioni automatiche senza intervento umano</li>
+                </ul>
+                
+                <p><strong>Controllo:</strong> Puoi sempre rifiutare o revocare il consenso scegliendo "Annunci non personalizzati" nelle impostazioni app o tramite <a href="https://adssettings.google.com" target="_blank">Google Ad Settings</a>.</p>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-layer-group"></i> 12. Categorie speciali di dati</h2>
+                <p>GiftSwap <strong>NON raccoglie né tratta</strong> categorie speciali di dati personali ai sensi dell'Art. 9 GDPR:</p>
+                
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4>❌ Dati sanitari</h4>
+                        <p>Nessuna informazione su salute fisica o mentale</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4>❌ Origine razziale/etnica</h4>
+                        <p>Nessun dato su origine etnica o razziale</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4>❌ Opinioni politiche/religiose</h4>
+                        <p>Nessuna raccolta di convinzioni politiche o religiose</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4>❌ Dati biometrici</h4>
+                        <p>Nessun uso di impronte, riconoscimento facciale o biometria</p>
+                    </div>
+                </div>
+                
+                <p>L'app è progettata per funzionare esclusivamente con dati minimi e non sensibili necessari per organizzare estrazioni regalo.</p>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-handshake"></i> 13. Responsabili del trattamento</h2>
+                <p>GiftSwap si avvale dei seguenti responsabili del trattamento:</p>
+                
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4><i class="fas fa-google"></i> Google LLC</h4>
+                        <p><strong>Servizi:</strong> Firebase Firestore, AdMob<br>
+                        <strong>Privacy Policy:</strong> <a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a><br>
+                        <strong>DPA:</strong> Google Ads Data Processing Terms</p>
+                    </div>
+                </div>
+                
+                <p>Tutti i responsabili sono vincolati da accordi di elaborazione dati (DPA) conformi GDPR che garantiscono adeguate misure di sicurezza e rispetto dei diritti degli interessati.</p>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-edit"></i> 14. Modifiche alla policy</h2>
+                <p>Questa Privacy Policy può essere aggiornata periodicamente per riflettere modifiche alle pratiche di trattamento dati o per conformità normativa.</p>
+                
+                <p><strong>Notifica modifiche:</strong></p>
+                <ul>
+                    <li>Modifiche sostanziali: Notifica in-app e richiesta nuovo consenso</li>
+                    <li>Modifiche minori: Aggiornamento pagina web con nuova data</li>
+                    <li>Versione sempre disponibile nell'app: Impostazioni → Privacy Policy</li>
+                </ul>
+                
+                <p><strong>URL aggiornato:</strong> <a href="https://giftswap-privacy.web.app/privacy-policy-it.html" target="_blank">https://giftswap-privacy.web.app/privacy-policy-it.html</a></p>
+                
+                <p><strong>Consiglio:</strong> Rivedi periodicamente questa policy per rimanere informato su come proteggiamo i tuoi dati.</p>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-envelope"></i> 15. Contatti</h2>
+                <p>Per qualsiasi domanda, richiesta o segnalazione relativa a questa Privacy Policy:</p>
+                
+                <div class="info-card">
+                    <h4>Contatto Privacy</h4>
+                    <p><strong>Email:</strong> appdevmond@gmail.com<br>
+                    <strong>Oggetto obbligatorio:</strong> PRIVACY GIFTSWAP<br>
+                    <strong>Risposta:</strong> Entro 30 giorni (urgenti entro 48 ore)</p>
+                </div>
+                
+                <h3><i class="fas fa-clock"></i> Tempi di risposta</h3>
+                <ul>
+                    <li><strong>Richieste urgenti:</strong> 24-48 ore (violazioni dati, minori)</li>
+                    <li><strong>Esercizio diritti:</strong> 30 giorni lavorativi</li>
+                    <li><strong>Richieste complesse:</strong> 60 giorni (con notifica motivata)</li>
+                    <li><strong>Supporto generale:</strong> 7 giorni lavorativi</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-certificate"></i> 16. Conformità GDPR</h2>
+                <p>GiftSwap è completamente conforme al Regolamento Generale sulla Protezione dei Dati (GDPR) UE 2016/679.</p>
+                
+                <h3><i class="fas fa-check-circle"></i> Checklist conformità</h3>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4>✅ Liceità del trattamento</h4>
+                        <p>Base giuridica chiara per ogni trattamento: consenso, contratto, legittimo interesse</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4>✅ Minimizzazione dati</h4>
+                        <p>Solo dati strettamente necessari, nessun eccesso di raccolta</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4>✅ Trasparenza</h4>
+                        <p>Informazioni chiare, complete e facilmente accessibili</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4>✅ Diritti degli interessati</h4>
+                        <p>Procedure definite per esercizio tutti i diritti GDPR</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4>✅ Sicurezza dati</h4>
+                        <p>Crittografia, server sicuri, eliminazione automatica</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4>✅ Privacy by design</h4>
+                        <p>Protezione dati integrata nell'architettura app</p>
+                    </div>
+                </div>
+                
+                <div class="highlight-box">
+                    <h3><i class="fas fa-thumbs-up"></i> Dichiarazione di conformità</h3>
+                    <p>Antonio Rota, in qualità di titolare del trattamento, dichiara che l'app GiftSwap e la presente Privacy Policy sono <strong>pienamente conformi</strong> al GDPR UE 2016/679 e alle normative italiane sulla protezione dei dati personali.</p>
+                    <p><strong>Data ultima verifica:</strong> 13 Novembre 2025<br>
+                    <strong>Prossima revisione:</strong> 13 Novembre 2026</p>
+                </div>
+            </div>
+
+            <a href="index.html" class="back-button">
+                <i class="fas fa-arrow-left"></i>
+                Torna alla Homepage
+            </a>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Antonio Rota - GiftSwap. Tutti i diritti riservati.</p>
+            <p>
+                <a href="privacy-policy-it.html" style="color: white; opacity: 0.8;">Privacy Policy</a> | 
+                <a href="terms-of-service-it.html" style="color: white; opacity: 0.8;">Termini di Servizio</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
