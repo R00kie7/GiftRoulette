@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial - GiftSwap</title>
+    <meta name="description" content="Complete guide to GiftSwap: temporary sessions for groups and permanent Duo Mode for couples. Learn to organize perfect gift exchanges.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #F75C3D 0%, #FF8A65 100%);
+            min-height: 100vh;
+        }
+        
+        .lang-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        .lang-switcher a {
+            background: white;
+            color: #F75C3D;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .lang-switcher a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            padding: 2rem 0;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 1rem 0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #fff, #ffebee);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+        
+        .nav a {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+            font-size: 0.9rem;
+        }
+        
+        .nav a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .main-content {
+            background: white;
+            border-radius: 20px;
+            margin: 1rem 0;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section {
+            padding: 2rem;
+        }
+        
+        .section:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .section h2 {
+            color: #F75C3D;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            text-align: center;
+            border-bottom: 3px solid #F75C3D;
+            padding-bottom: 0.5rem;
+        }
+        
+        .mode-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-left: 6px solid #F75C3D;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            position: relative;
+        }
+        
+        .mode-icon {
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: #F75C3D;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            border: 4px solid white;
+        }
+        
+        .mode-card h3 {
+            color: #333;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .badge {
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-left: 10px;
+        }
+        
+        .badge-temp {
+            background: linear-gradient(45deg, #e74c3c, #c0392b);
+        }
+        
+        .badge-perm {
+            background: linear-gradient(45deg, #27ae60, #229954);
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .feature-box {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .feature-box i {
+            font-size: 2rem;
+            color: #F75C3D;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-box h4 {
+            color: #F75C3D;
+            margin-bottom: 0.5rem;
+        }
+        
+        .tip {
+            background: linear-gradient(135deg, #F75C3D, #FF8A65);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+        }
+        
+        .tip-icon {
+            font-size: 1.5rem;
+            margin-right: 0.5rem;
+        }
+        
+        .warning {
+            background: #fff3cd;
+            color: #856404;
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid #ffc107;
+            margin: 1rem 0;
+        }
+        
+        .success {
+            background: #d4edda;
+            color: #155724;
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid #28a745;
+            margin: 1rem 0;
+        }
+        
+        .steps {
+            list-style: none;
+            counter-reset: step-counter;
+            padding: 0;
+        }
+        
+        .steps li {
+            counter-increment: step-counter;
+            padding: 1rem 0 1rem 3rem;
+            position: relative;
+            border-left: 2px solid #F75C3D;
+            margin-left: 1rem;
+        }
+        
+        .steps li:last-child {
+            border-left: none;
+        }
+        
+        .steps li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: -1.5rem;
+            top: 0.5rem;
+            background: #F75C3D;
+            color: white;
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .comparison-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 2px solid #F75C3D;
+        }
+        
+        .comparison-card h4 {
+            color: #F75C3D;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .comparison-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .comparison-card li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .comparison-card li:before {
+            content: '✓';
+            color: #28a745;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+        
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .comparison {
+                grid-template-columns: 1fr;
+            }
+            
+            .lang-switcher {
+                top: 10px;
+                right: 10px;
+            }
+            
+            .lang-switcher a {
+                padding: 8px 16px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="lang-switcher">
+        <a href="tutorial.html">
+            <i class="fas fa-globe"></i>
+            Italiano
+        </a>
+    </div>
+
+    <header>
+        <div class="container">
+            <div class="hero">
+                <h1><i class="fas fa-gift"></i> GiftSwap Tutorial</h1>
+                <p>Learn to use both modes: temporary sessions for groups and Duo Mode for couples</p>
+                <nav class="nav">
+                    <a href="index.html"><i class="fas fa-home"></i> Homepage</a>
+                    <a href="#session-mode"><i class="fas fa-users"></i> Group Sessions</a>
+                    <a href="#duo-mode"><i class="fas fa-heart"></i> Duo Mode</a>
+                    <a href="#comparison"><i class="fas fa-balance-scale"></i> Comparison</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <section class="section">
+                <h2><i class="fas fa-lightbulb"></i> Two Modes, Two Uses</h2>
+                
+                <div class="tip">
+                    <i class="fas fa-info-circle tip-icon"></i>
+                    <strong>Choose the right mode:</strong> GiftSwap offers two distinct experiences for different situations. Temporary sessions for group events, permanent Duo Mode for stable couples.
+                </div>
+                
+                <div class="success">
+                    <i class="fas fa-shield-alt"></i>
+                    <strong>Privacy guaranteed:</strong> All features comply with GDPR. Temporary sessions auto-delete after 24 hours, permanent Duo data can be deleted anytime.
+                </div>
+            </section>
+
+            <section id="session-mode" class="section">
+                <div class="mode-card">
+                    <div class="mode-icon"><i class="fas fa-users"></i></div>
+                    <h3>Group Sessions <span class="badge badge-temp">TEMPORARY 24H</span></h3>
+                    
+                    <p><strong>Ideal for:</strong> Christmas parties with friends, birthdays, corporate events, occasional gift exchanges between groups.</p>
+                    
+                    <h4><i class="fas fa-clock"></i> Key Features</h4>
+                    <div class="feature-grid">
+                        <div class="feature-box">
+                            <i class="fas fa-hourglass-end"></i>
+                            <h4>24h Auto-Delete</h4>
+                            <p>Data automatically disappears 24 hours after last activity</p>
+                        </div>
+                        
+                        <div class="feature-box">
+                            <i class="fas fa-qrcode"></i>
+                            <h4>Shared QR Code</h4>
+                            <p>Everyone scans the same code to join the session</p>
+                        </div>
+                        
+                        <div class="feature-box">
+                            <i class="fas fa-random"></i>
+                            <h4>Synchronized Draw</h4>
+                            <p>Simultaneous tap to reveal who you'll gift to</p>
+                        </div>
+                        
+                        <div class="feature-box">
+                            <i class="fas fa-user-secret"></i>
+                            <h4>Totally Anonymous</h4>
+                            <p>No personal data required, only chosen names</p>
+                        </div>
+                    </div>
+                    
+                    <h4><i class="fas fa-list-ol"></i> How to Use Sessions</h4>
+                    <ul class="steps">
+                        <li>
+                            <strong>Create Session:</strong> The organizer clicks "Create Session", enters name and generates QR Code
+                        </li>
+                        <li>
+                            <strong>Share QR:</strong> Show the QR Code to other participants in person or via screenshot
+                        </li>
+                        <li>
+                            <strong>Participants:</strong> Others click "Join" and scan the QR Code
+                        </li>
+                        <li>
+                            <strong>Waiting Room:</strong> Everyone sees the participant list in real-time
+                        </li>
+                        <li>
+                            <strong>Draw:</strong> When ready, the organizer clicks "Draw" (everyone must be online)
+                        </li>
+                        <li>
+                            <strong>Reveal:</strong> Synchronized animation, tap to reveal who you'll gift to
+                        </li>
+                        <li>
+                            <strong>History:</strong> Result saved locally for 24h, then automatically deleted from Firebase
+                        </li>
+                    </ul>
+                    
+                    <div class="warning">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <strong>Important:</strong> All participants must be online during the draw for correct synchronization. After 24h cloud data is automatically deleted, but the result remains in your local history.
+                    </div>
+                </div>
+            </section>
+
+            <section id="duo-mode" class="section">
+                <div class="mode-card">
+                    <div class="mode-icon"><i class="fas fa-heart"></i></div>
+                    <h3>Duo Mode <span class="badge badge-perm">PERMANENT</span></h3>
+                    
+                    <p><strong>Ideal for:</strong> Couples, best friends, close family members who want to share wishlists all year long.</p>
+                    
+                    <h4><i class="fas fa-star"></i> Key Features</h4>
+                    <div class="feature-grid">
+                        <div class="feature-box">
+                            <i class="fas fa-infinity"></i>
+                            <h4>Permanent</h4>
+                            <p>Data saved until you decide to manually delete it</p>
+                        </div>
+                        
+                        <div class="feature-box">
+                            <i class="fas fa-list"></i>
+                            <h4>Wishlists</h4>
+                            <p>Share desired gifts with name and optional link</p>
+                        </div>
+                        
+                        <div class="feature-box">
+                            <i class="fas fa-sync"></i>
+                            <h4>Real-time Sync</h4>
+                            <p>Additions and changes instantly visible to partner</p>
+                        </div>
+                        
+                        <div class="feature-box">
+                            <i class="fas fa-user-friends"></i>
+                            <h4>Only 2 People</h4>
+                            <p>Exclusive couple mode, not expandable</p>
+                        </div>
+                    </div>
+                    
+                    <h4><i class="fas fa-list-ol"></i> How to Use Duo Mode</h4>
+                    <ul class="steps">
+                        <li>
+                            <strong>Create Duo:</strong> One person clicks "Duo Mode", enters both names and generates code
+                        </li>
+                        <li>
+                            <strong>Share Code:</strong> Share the Duo code with your partner (message, voice, in person)
+                        </li>
+                        <li>
+                            <strong>Join Duo:</strong> Partner clicks "Duo Mode" → "Join with Code" and enters the code
+                        </li>
+                        <li>
+                            <strong>Wishlist:</strong> Both can add desired gifts with name and optional links
+                        </li>
+                        <li>
+                            <strong>View Partner's List:</strong> Click heart icon to see what your partner desires
+                        </li>
+                        <li>
+                            <strong>Update Anytime:</strong> Add or remove gifts anytime, automatic synchronization
+                        </li>
+                        <li>
+                            <strong>Leave Anytime:</strong> "Leave Duo" button permanently deletes all data from cloud
+                        </li>
+                    </ul>
+                    
+                    <div class="tip">
+                        <i class="fas fa-lightbulb tip-icon"></i>
+                        <strong>Tip:</strong> Use Duo Mode for birthdays, Valentine's Day, Christmas, anniversaries. Update the list throughout the year so your partner always knows what you'd like to receive!
+                    </div>
+                    
+                    <div class="warning">
+                        <i class="fas fa-trash-alt"></i>
+                        <strong>Data Deletion:</strong> Duo Mode keeps data until you click "Leave Duo" or "Delete Data" in Settings. When you leave, ALL data is deleted from Firebase for both users.
+                    </div>
+                </div>
+            </section>
+
+            <section id="comparison" class="section">
+                <h2><i class="fas fa-balance-scale"></i> Mode Comparison</h2>
+                
+                <div class="comparison">
+                    <div class="comparison-card">
+                        <h4><i class="fas fa-users"></i> Group Sessions</h4>
+                        <ul>
+                            <li>Unlimited number of participants</li>
+                            <li>Auto-delete after 24 hours</li>
+                            <li>Random draw with animation</li>
+                            <li>QR Code for quick access</li>
+                            <li>Synchronization during draw</li>
+                            <li>Ideal for occasional events</li>
+                            <li>No wishlists</li>
+                            <li>Local history available</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="comparison-card">
+                        <h4><i class="fas fa-heart"></i> Duo Mode</h4>
+                        <ul>
+                            <li>Exactly 2 people</li>
+                            <li>Permanent until manual deletion</li>
+                            <li>Shared wishlists</li>
+                            <li>Alphanumeric code to join</li>
+                            <li>Continuous real-time sync</li>
+                            <li>Ideal for couples and stable relationships</li>
+                            <li>Desired gift management</li>
+                            <li>Explicit manual deletion</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="tip">
+                    <i class="fas fa-question-circle tip-icon"></i>
+                    <strong>Which to choose?</strong> Use Sessions for Christmas parties with colleagues or friends (deletes data after event). Use Duo Mode if you have a stable partner and want to share wishes all year.
+                </div>
+            </section>
+
+            <section class="section">
+                <h2><i class="fas fa-shield-alt"></i> Privacy and Security</h2>
+                
+                <div class="feature-grid">
+                    <div class="feature-box">
+                        <i class="fas fa-user-secret"></i>
+                        <h4>Anonymity</h4>
+                        <p>No personal data required, only names chosen by you</p>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <i class="fas fa-lock"></i>
+                        <h4>TLS/SSL Encryption</h4>
+                        <p>All data in transit is encrypted with secure protocols</p>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <i class="fas fa-server"></i>
+                        <h4>EU Servers</h4>
+                        <p>Data hosted in European datacenters (Belgium) for GDPR compliance</p>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <i class="fas fa-clock"></i>
+                        <h4>Limited Retention</h4>
+                        <p>Sessions 24h auto-delete, Duo explicit deletion</p>
+                    </div>
+                </div>
+                
+                <div class="success">
+                    <i class="fas fa-check-circle"></i>
+                    <strong>GDPR Compliant:</strong> GiftSwap fully complies with the General Data Protection Regulation (GDPR). You can exercise all your rights through the app Settings.
+                </div>
+            </section>
+
+            <section class="section">
+                <h2><i class="fas fa-question-circle"></i> Frequently Asked Questions</h2>
+                
+                <div class="mode-card">
+                    <h3><i class="fas fa-users"></i> Group Sessions</h3>
+                    
+                    <p><strong>Q: What happens if someone leaves during the draw?</strong><br>
+                    A: The draw continues, but the result for who leaves might not sync. Better to complete the draw all together.</p>
+                    
+                    <p><strong>Q: Can I save the QR Code to reuse it?</strong><br>
+                    A: Yes, but after 24h from last activity the session is deleted from Firebase. You'll need to create a new one.</p>
+                    
+                    <p><strong>Q: How can I see the draw history?</strong><br>
+                    A: Click the clock icon on the home. History is saved locally on your device and doesn't auto-delete.</p>
+                    
+                    <p><strong>Q: Can I create multiple sessions simultaneously?</strong><br>
+                    A: Yes, each session has a unique code. You can participate in multiple different group sessions.</p>
+                </div>
+                
+                <div class="mode-card">
+                    <h3><i class="fas fa-heart"></i> Duo Mode</h3>
+                    
+                    <p><strong>Q: Can I have multiple Duo Modes simultaneously?</strong><br>
+                    A: No, you can be in only one Duo at a time. You must leave the current Duo to create/join a new one.</p>
+                    
+                    <p><strong>Q: Does my partner see when I add gifts?</strong><br>
+                    A: Yes, synchronization is in real-time. As soon as you add, your partner sees the update instantly.</p>
+                    
+                    <p><strong>Q: What happens if one leaves the Duo?</strong><br>
+                    A: When one leaves, ALL data is deleted for both. The other user will be notified and sent back to home.</p>
+                    
+                    <p><strong>Q: Can I hide some gifts from the list?</strong><br>
+                    A: No, everything you add is visible to your partner. It's the nature of Duo Mode: total transparency on wishlists.</p>
+                    
+                    <p><strong>Q: Are links mandatory?</strong><br>
+                    A: No, you can add only the gift name. The link is optional to indicate where to buy it or show specifications.</p>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2><i class="fas fa-rocket"></i> Pro Tips</h2>
+                
+                <div class="feature-grid">
+                    <div class="feature-box">
+                        <i class="fas fa-wifi"></i>
+                        <h4>Stable Connection</h4>
+                        <p>Make sure you have internet connection during draw and synchronization</p>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <i class="fas fa-screenshot"></i>
+                        <h4>QR Screenshot</h4>
+                        <p>Take screenshot of QR Code to easily share it via WhatsApp/Telegram</p>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <i class="fas fa-calendar-plus"></i>
+                        <h4>Plan Ahead</h4>
+                        <p>Create Duo Mode weeks before the event to give your partner time to fill the list</p>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <i class="fas fa-trash-alt"></i>
+                        <h4>Periodic Cleanup</h4>
+                        <p>Use "Delete Data" in Settings to clean local history if it becomes too long</p>
+                    </div>
+                </div>
+                
+                <div class="success">
+                    <i class="fas fa-heart"></i>
+                    <strong>Enjoy the experience!</strong> GiftSwap is designed to make gift exchanges fun and surprising. Use the animations, involve everyone, and most importantly have fun!
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p><i class="fas fa-home"></i> <a href="index.html" style="color: #ccc;">Back to Homepage</a></p>
+            <p><i class="fas fa-shield-alt"></i> <a href="privacy-policy-en.html" style="color: #ccc;">Privacy Policy</a> • <a href="terms-of-service-en.html" style="color: #ccc;">Terms of Service</a></p>
+            <p>&copy; 2025 GiftSwap - Complete Tutorial</p>
+        </div>
+    </footer>
+</body>
+</html>
