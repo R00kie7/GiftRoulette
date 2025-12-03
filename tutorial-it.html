@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tutorial - GiftSwap</title>
-    <meta name="description" content="Guida completa a GiftSwap: sessioni temporanee per gruppi e Duo Mode permanente per coppie. Impara a organizzare estrazioni regalo perfette.">
+    <title>Tutorial - GiftRoulette</title>
+    <meta name="description" content="Guida completa a GiftRoulette: sessioni temporanee per gruppi e Duo Mode permanente per coppie. Impara a organizzare estrazioni regalo perfette.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -209,6 +209,25 @@
             margin: 1rem 0;
         }
         
+        .info-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            color: #0d47a1;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 5px solid #1976d2;
+            margin: 1.5rem 0;
+            line-height: 1.8;
+        }
+        
+        .info-box p {
+            margin: 0.8rem 0;
+        }
+        
+        .info-box strong {
+            color: #0d47a1;
+            font-weight: 600;
+        }
+        
         .steps {
             list-style: none;
             counter-reset: step-counter;
@@ -304,7 +323,7 @@
     <header>
         <div class="container">
             <div class="hero">
-                <h1><i class="fas fa-gift"></i> Tutorial GiftSwap</h1>
+                <h1><i class="fas fa-gift"></i> Tutorial GiftRoulette</h1>
                 <p>Impara a usare le due modalità: sessioni temporanee per gruppi e Duo Mode per coppie</p>
                 <nav class="nav">
                     <a href="index.html"><i class="fas fa-home"></i> Homepage</a>
@@ -323,7 +342,7 @@
                 
                 <div class="tip">
                     <i class="fas fa-info-circle tip-icon"></i>
-                    <strong>Scegli la modalità giusta:</strong> GiftSwap offre due esperienze distinte per situazioni diverse. Sessioni temporanee per eventi di gruppo, Duo Mode permanente per coppie stabili.
+                    <strong>Scegli la modalità giusta:</strong> GiftRoulette offre due esperienze distinte per situazioni diverse. Sessioni temporanee per eventi di gruppo, Duo Mode permanente per coppie stabili.
                 </div>
                 
                 <div class="success">
@@ -403,68 +422,80 @@
                     <div class="mode-icon"><i class="fas fa-heart"></i></div>
                     <h3>Duo Mode <span class="badge badge-perm">PERMANENTE</span></h3>
                     
-                    <p><strong>Ideale per:</strong> Coppie, migliori amici, familiari stretti che vogliono condividere liste desideri tutto l'anno.</p>
+                    <p><strong>Ideale per:</strong> Coppie, migliori amici, familiari stretti che vogliono scambiarsi regali in modo segreto e romantico.</p>
                     
                     <h4><i class="fas fa-star"></i> Caratteristiche Chiave</h4>
                     <div class="feature-grid">
+                        <div class="feature-box">
+                            <i class="fas fa-user-secret"></i>
+                            <h4>Liste Segrete</h4>
+                            <p>La tua lista desideri è invisibile al partner fino all'estrazione</p>
+                        </div>
+                        
+                        <div class="feature-box">
+                            <i class="fas fa-random"></i>
+                            <h4>Estrazione Casuale</h4>
+                            <p>Il partner estrae un regalo random dalla tua lista</p>
+                        </div>
+                        
+                        <div class="feature-box">
+                            <i class="fas fa-link"></i>
+                            <h4>Link Acquisto</h4>
+                            <p>Aggiungi link per facilitare l'acquisto del regalo estratto</p>
+                        </div>
+                        
                         <div class="feature-box">
                             <i class="fas fa-infinity"></i>
                             <h4>Permanente</h4>
                             <p>Dati salvati finché non decidi di eliminarli manualmente</p>
                         </div>
-                        
-                        <div class="feature-box">
-                            <i class="fas fa-list"></i>
-                            <h4>Liste Desideri</h4>
-                            <p>Condividi regali desiderati con nome e link opzionale</p>
-                        </div>
-                        
-                        <div class="feature-box">
-                            <i class="fas fa-sync"></i>
-                            <h4>Sincronizzazione realtime</h4>
-                            <p>Aggiunte e modifiche visibili istantaneamente al partner</p>
-                        </div>
-                        
-                        <div class="feature-box">
-                            <i class="fas fa-user-friends"></i>
-                            <h4>Solo 2 persone</h4>
-                            <p>Modalità esclusiva per coppia, non espandibile</p>
-                        </div>
+                    </div>
+                    
+                    <h4><i class="fas fa-question-circle"></i> Come Funziona l'Estrazione</h4>
+                    <div class="info-box">
+                        <p><strong>📝 Utente 1 (Tu)</strong> crea una lista di regali che vorresti ricevere. Puoi aggiungere nome e link opzionale per ogni regalo.</p>
+                        <p><strong>🎁 Utente 2 (Partner)</strong> <u>non può vedere</u> la tua lista completa. È completamente nascosta!</p>
+                        <p><strong>🎲 Estrazione:</strong> Quando Utente 2 clicca "Estrai Regalo", l'app seleziona <u>un regalo random</u> dalla tua lista e lo mostra a entrambi.</p>
+                        <p><strong>✅ Risultato:</strong> Entrambi vedete il regalo estratto e l'eventuale link d'acquisto. Utente 2 sa cosa regalarti senza aver visto tutta la lista!</p>
+                        <p><strong>🔄 Bidirezionale:</strong> Anche Utente 2 crea la sua lista segreta, e tu estrai dalla sua lista quando vuoi fargli un regalo.</p>
                     </div>
                     
                     <h4><i class="fas fa-list-ol"></i> Come Usare il Duo Mode</h4>
                     <ul class="steps">
                         <li>
-                            <strong>Crea Duo:</strong> Uno dei due clicca "Duo Mode", inserisce i nomi di entrambi e genera codice
+                            <strong>Crea Duo:</strong> Clicca "Duo Mode" e scegli "Crea Nuovo Duo", poi inserisci il nome di entrambi e genera il codice
                         </li>
                         <li>
-                            <strong>Condividi Codice:</strong> Condividi il codice Duo col partner (messaggio, vocal, di persona)
+                            <strong>Condividi Codice:</strong> Condividi il codice Duo col partner (messaggio, vocal, QR code)
                         </li>
                         <li>
-                            <strong>Unisciti al Duo:</strong> Il partner clicca "Duo Mode" → "Unisciti con Codice" e inserisce il codice
+                            <strong>Unisciti al Duo:</strong> Il partner clicca "Duo Mode" → "Unisciti con Codice" e inserisce il codice a 8 caratteri
                         </li>
                         <li>
-                            <strong>Lista Desideri:</strong> Entrambi possono aggiungere regali desiderati con nome e link opzionali
+                            <strong>Crea Lista Desideri:</strong> Entrambi aggiungete regali che vorreste ricevere con nome e link opzionale (es. link Amazon, negozio online)
                         </li>
                         <li>
-                            <strong>Visualizza Lista Partner:</strong> Clicca sull'icona cuore per vedere cosa desidera il tuo partner
+                            <strong>Liste Segrete:</strong> Nessuno dei due può vedere la lista dell'altro. Rimane nascosta fino all'estrazione!
                         </li>
                         <li>
-                            <strong>Aggiorna quando vuoi:</strong> Aggiungi o rimuovi regali in qualsiasi momento, sincronizzazione automatica
+                            <strong>Estrazione Regalo:</strong> Quando vuoi fare un regalo al partner, clicca "Estrai Regalo". L'app mostra un regalo random dalla sua lista segreta
                         </li>
                         <li>
-                            <strong>Esci quando vuoi:</strong> Pulsante "Esci dal Duo" elimina permanentemente tutti i dati dal cloud
+                            <strong>Visualizza Link:</strong> Se il regalo estratto ha un link d'acquisto, puoi aprirlo direttamente per comprare il regalo
+                        </li>
+                        <li>
+                            <strong>Aggiorna Liste:</strong> Puoi modificare la tua lista quando vuoi (aggiungere/rimuovere regali, modificare link)
                         </li>
                     </ul>
                     
                     <div class="tip">
                         <i class="fas fa-lightbulb tip-icon"></i>
-                        <strong>Suggerimento:</strong> Usa il Duo Mode per compleanno, San Valentino, Natale, anniversari. Aggiorna la lista durante l'anno così il partner sa sempre cosa ti piacerebbe ricevere!
+                        <strong>Suggerimento:</strong> Usa il Duo Mode per compleanno, San Valentino, Natale, anniversari. Aggiorna la tua lista durante l'anno così quando il partner estrae sa sempre cosa ti piacerebbe ricevere! Perfetto per le sorprese 🎁
                     </div>
                     
                     <div class="warning">
-                        <i class="fas fa-trash-alt"></i>
-                        <strong>Eliminazione dati:</strong> Il Duo Mode conserva i dati finché non clicchi "Esci dal Duo" o "Elimina Dati" nelle Impostazioni. Quando esci, TUTTI i dati vengono eliminati da Firebase per entrambi gli utenti.
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <strong>Privacy:</strong> Ricorda che dopo l'estrazione, il regalo estratto diventa visibile a entrambi. Se vuoi mantenere il massimo segreto, crea più liste diverse o aggiorna la lista dopo che il partner ha estratto.
                     </div>
                 </div>
             </section>
@@ -492,11 +523,12 @@
                         <ul>
                             <li>Esattamente 2 persone</li>
                             <li>Permanente fino a eliminazione manuale</li>
-                            <li>Liste desideri condivise</li>
+                            <li>Liste desideri SEGRETE (invisibili al partner)</li>
+                            <li>Estrazione regalo casuale dalla lista partner</li>
                             <li>Codice alfanumerico per unirsi</li>
-                            <li>Sincronizzazione continua realtime</li>
+                            <li>Link acquisto opzionali</li>
                             <li>Ideale per coppie e relazioni stabili</li>
-                            <li>Gestione regali desiderati</li>
+                            <li>Sorpresa garantita nell'estrazione</li>
                             <li>Eliminazione manuale esplicita</li>
                         </ul>
                     </div>
@@ -539,7 +571,7 @@
                 
                 <div class="success">
                     <i class="fas fa-check-circle"></i>
-                    <strong>GDPR Compliant:</strong> GiftSwap rispetta completamente il Regolamento Generale sulla Protezione dei Dati (GDPR). Puoi esercitare tutti i tuoi diritti tramite le Impostazioni dell'app.
+                    <strong>GDPR Compliant:</strong> GiftRoulette rispetta completamente il Regolamento Generale sulla Protezione dei Dati (GDPR). Puoi esercitare tutti i tuoi diritti tramite le Impostazioni dell'app.
                 </div>
             </section>
 
@@ -565,20 +597,26 @@
                 <div class="mode-card">
                     <h3><i class="fas fa-heart"></i> Duo Mode</h3>
                     
+                    <p><strong>Q: Il partner può vedere la mia lista desideri?</strong><br>
+                    R: No! La tua lista rimane completamente nascosta finché il partner non clicca "Estrai Regalo". A quel punto vede solo 1 regalo estratto casualmente, non tutta la lista.</p>
+                    
                     <p><strong>Q: Posso avere più Duo Mode contemporaneamente?</strong><br>
                     R: No, puoi essere in un solo Duo alla volta. Devi uscire dal Duo corrente per crearne/unirti a uno nuovo.</p>
                     
-                    <p><strong>Q: Il partner vede quando aggiungo regali?</strong><br>
-                    R: Sì, la sincronizzazione è in tempo reale. Appena aggiungi, il partner vede l'aggiornamento istantaneamente.</p>
+                    <p><strong>Q: Cosa vede il partner quando estrae?</strong><br>
+                    R: L'app seleziona casualmente UN regalo dalla tua lista e lo mostra a entrambi (nome + eventuale link). Il partner non vede gli altri regali che hai in lista!</p>
+                    
+                    <p><strong>Q: Posso estrarre più volte dalla stessa lista?</strong><br>
+                    R: Sì, ogni estrazione è casuale. Potresti ricevere regali diversi o lo stesso regalo più volte. È come una lotteria!</p>
                     
                     <p><strong>Q: Cosa succede se uno esce dal Duo?</strong><br>
-                    R: Quando uno esce, TUTTI i dati vengono eliminati per entrambi. L'altro utente verrà notificato e rimandato alla home.</p>
-                    
-                    <p><strong>Q: Posso nascondere alcuni regali dalla lista?</strong><br>
-                    R: No, tutto ciò che aggiungi è visibile al partner. È la natura del Duo Mode: trasparenza totale sulle liste desideri.</p>
+                    R: Quando uno esce, TUTTI i dati vengono eliminati permanentemente per entrambi. L'altro utente verrà notificato e rimandato alla home.</p>
                     
                     <p><strong>Q: I link sono obbligatori?</strong><br>
-                    R: No, puoi aggiungere solo il nome del regalo. Il link è opzionale per indicare dove acquistarlo o mostrare specifiche.</p>
+                    R: No, puoi aggiungere solo il nome del regalo. Il link è opzionale per indicare dove acquistarlo o mostrare il prodotto specifico.</p>
+                    
+                    <p><strong>Q: Posso modificare la lista dopo l'estrazione?</strong><br>
+                    R: Sì! Puoi aggiungere/rimuovere regali quando vuoi. Se il partner estrae di nuovo, potrebbe uscire un regalo diverso dalla lista aggiornata.</p>
                 </div>
             </section>
 
@@ -613,7 +651,7 @@
                 
                 <div class="success">
                     <i class="fas fa-heart"></i>
-                    <strong>Goditi l'esperienza!</strong> GiftSwap è pensato per rendere gli scambi regalo divertenti e sorprendenti. Usa le animazioni, coinvolgi tutti, e soprattutto divertiti!
+                    <strong>Goditi l'esperienza!</strong> GiftRoulette è pensato per rendere gli scambi regalo divertenti e sorprendenti. Usa le animazioni, coinvolgi tutti, e soprattutto divertiti!
                 </div>
             </section>
         </div>
@@ -623,7 +661,7 @@
         <div class="container">
             <p><i class="fas fa-home"></i> <a href="index.html" style="color: #ccc;">Torna alla Homepage</a></p>
             <p><i class="fas fa-shield-alt"></i> <a href="privacy-policy-it.html" style="color: #ccc;">Privacy Policy</a> • <a href="terms-of-service-it.html" style="color: #ccc;">Termini di Servizio</a></p>
-            <p>&copy; 2025 GiftSwap - Tutorial Completo</p>
+            <p>&copy; 2025 GiftRoulette - Tutorial Completo</p>
         </div>
     </footer>
 </body>
