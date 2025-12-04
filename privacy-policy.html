@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - GiftRoulette</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 40px;
+        }
+
+        .language-selection {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .language-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            text-decoration: none;
+            color: #333;
+            font-size: 18px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .language-button:hover {
+            border-color: #667eea;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .flag {
+            font-size: 32px;
+            margin-right: 15px;
+        }
+
+        .footer {
+            margin-top: 30px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .language-button {
+                padding: 15px;
+                font-size: 16px;
+            }
+
+            .flag {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">🎁</div>
+        <h1>Privacy Policy</h1>
+        <p class="subtitle">Select your language / Seleziona la tua lingua</p>
+        
+        <div class="language-selection">
+            <a href="https://r00kie7.github.io/GiftRoulette/privacy-policy-en.html" class="language-button">
+                <span class="flag">🇬🇧</span>
+                <span>English</span>
+            </a>
+            
+            <a href="https://r00kie7.github.io/GiftRoulette/privacy-policy-it.html" class="language-button">
+                <span class="flag">🇮🇹</span>
+                <span>Italiano</span>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Auto-detect browser language and redirect
+        const userLang = navigator.language || navigator.userLanguage;
+        const lang = userLang.toLowerCase();
+
+        // Optional: Auto-redirect after 3 seconds based on browser language
+        // Uncomment the following code if you want automatic redirection
+        /*
+        setTimeout(() => {
+            if (lang.startsWith('it')) {
+                window.location.href = 'https://r00kie7.github.io/GiftRoulette/privacy-policy-it.html';
+            } else {
+                window.location.href = 'https://r00kie7.github.io/GiftRoulette/privacy-policy-en.html';
+            }
+        }, 3000);
+        */
+    </script>
+</body>
+</html>
