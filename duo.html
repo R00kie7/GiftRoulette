@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unisciti al Duo - GiftRoulette</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #F75C3D 0%, #FF8A65 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 24px;
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+        
+        .icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            color: #2D3142;
+            font-size: 28px;
+            margin-bottom: 16px;
+        }
+        
+        .code {
+            background: linear-gradient(135deg, #F75C3D 0%, #FF8A65 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 16px;
+            font-size: 32px;
+            font-weight: bold;
+            letter-spacing: 4px;
+            margin: 24px 0;
+            box-shadow: 0 4px 12px rgba(247, 92, 61, 0.3);
+        }
+        
+        .message {
+            color: #666;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+        
+        .button {
+            display: inline-block;
+            background: linear-gradient(135deg, #F75C3D 0%, #FF8A65 100%);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 12px rgba(247, 92, 61, 0.3);
+            margin: 8px;
+        }
+        
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(247, 92, 61, 0.4);
+        }
+        
+        .spinner {
+            border: 4px solid rgba(247, 92, 61, 0.2);
+            border-top: 4px solid #F75C3D;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .footer {
+            margin-top: 32px;
+            padding-top: 24px;
+            border-top: 1px solid #eee;
+            color: #999;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="icon">🎁</div>
+        <h1>Hai ricevuto un regalo!</h1>
+        <div id="codeDisplay" class="code">...</div>
+        <p class="message" id="statusMessage">
+            Tentativo di apertura automatica dell'app...
+        </p>
+        <div class="spinner" id="spinner"></div>
+        <div id="buttons" style="display: none;">
+            <a href="#" id="openApp" class="button">Apri GiftRoulette</a>
+            <br>
+            <a href="https://play.google.com/store" class="button" style="background: #34A853;">
+                Scarica l'App
+            </a>
+        </div>
+        <div class="footer">
+            GiftRoulette - Scambio regali divertente
+        </div>
+    </div>
+
+    <script>
+        // Estrai il codice dall'URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const duoCode = urlParams.get('code');
+        
+        if (duoCode) {
+            document.getElementById('codeDisplay').textContent = duoCode;
+            
+            // Crea i link
+            const appLink = `giftroulette://duo?code=${duoCode}`;
+            const playStoreLink = 'https://play.google.com/store/apps/details?id=com.rookiedev.giftswap';
+            
+            document.getElementById('openApp').href = appLink;
+            
+            // Tentativo automatico di aprire l'app
+            setTimeout(() => {
+                window.location.href = appLink;
+                
+                // Dopo 2 secondi, mostra i pulsanti se l'app non si apre
+                setTimeout(() => {
+                    document.getElementById('spinner').style.display = 'none';
+                    document.getElementById('statusMessage').textContent = 
+                        'Se l\'app non si è aperta automaticamente:';
+                    document.getElementById('buttons').style.display = 'block';
+                }, 2000);
+            }, 500);
+        } else {
+            document.getElementById('codeDisplay').textContent = 'ERRORE';
+            document.getElementById('spinner').style.display = 'none';
+            document.getElementById('statusMessage').textContent = 
+                'Link non valido. Codice duo mancante.';
+        }
+    </script>
+</body>
+</html>
